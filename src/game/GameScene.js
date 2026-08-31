@@ -88,7 +88,7 @@ export class GameScene extends Phaser.Scene {
     this.core = this.add.container(1190, 330);
     const coreGlow = this.add.circle(0, 0, 52, 0x4ae7ff, 0.12);
     const coreBody = this.add.rectangle(0, 0, 68, 88, 0x1a7198, 1).setStrokeStyle(3, 0x86ecff, 0.9);
-    const coreGem = this.add.diamond(0, -8, 34, 46, 0x7ff7ff, 0.95);
+    const coreGem = this.add.polygon(0, -8, [0, -23, 17, 0, 0, 23, -17, 0], 0x7ff7ff, 0.95);
     const coreText = this.add.text(0, 58, "FAMILY CORE", { fontFamily: "system-ui", fontSize: "12px", color: "#a9edff", fontStyle: "bold" }).setOrigin(0.5);
     this.core.add([coreGlow, coreBody, coreGem, coreText]);
     this.tweens.add({ targets: coreGlow, scale: 1.16, alpha: 0.26, duration: 900, yoyo: true, repeat: -1 });
@@ -100,7 +100,7 @@ export class GameScene extends Phaser.Scene {
     const heroEye = this.add.rectangle(0, -34, 18, 5, 0x9effff);
     const heroLabel = this.add.text(0, 47, "BOLT", { fontFamily: "system-ui", fontSize: "12px", color: "#8defff", fontStyle: "bold" }).setOrigin(0.5);
     this.hero.add([heroGlow, heroBody, heroHead, heroEye, heroLabel]);
-    this.tweens.add({ targets: hero, y: 570, duration: 1150, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
+    this.tweens.add({ targets: this.hero, y: 570, duration: 1150, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
 
     this.createTowerSpots();
     this.createTowerPalette();
