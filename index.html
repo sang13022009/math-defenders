@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <title>Math Defenders — Family Prototype</title>
+  </head>
+  <body>
+    <div id="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">FAMILY PROTOTYPE · V0.1</p>
+          <h1>MATH DEFENDERS</h1>
+        </div>
+        <div class="topbar-actions">
+          <button id="math-energy-btn" class="action-btn primary" disabled>🧠 Nạp Math Energy</button>
+          <button id="hero-skill-btn" class="action-btn" disabled>⚡ Hero Skill</button>
+        </div>
+      </header>
+
+      <main>
+        <section id="game-wrap" aria-label="Chiến trường Math Defenders">
+          <div id="game"></div>
+          <div id="status-strip">
+            <span id="player-label">Chưa chọn người chơi</span>
+            <span id="wave-label">WAVE —</span>
+            <span id="energy-label">ENERGY 0</span>
+            <span id="core-label">CORE 100%</span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <section id="onboarding" class="overlay visible" aria-modal="true" role="dialog">
+      <div class="panel onboarding-panel">
+        <p class="eyebrow">MECHA CITY ĐANG BỊ TẤN CÔNG</p>
+        <h2>Chọn chiến binh</h2>
+        <p class="muted">Mỗi hồ sơ có tiến độ Toán riêng. Dữ liệu V0.1 chỉ lưu trên thiết bị này.</p>
+        <label>
+          Tên người chơi
+          <input id="player-name" maxlength="18" placeholder="Ví dụ: Minh" autocomplete="off" />
+        </label>
+        <label>
+          Lớp
+          <select id="player-grade">
+            <option value="1">Lớp 1</option>
+            <option value="2" selected>Lớp 2</option>
+            <option value="3">Lớp 3</option>
+            <option value="4">Lớp 4</option>
+          </select>
+        </label>
+        <button id="start-btn" class="cta">VÀO MECHA CITY →</button>
+        <div id="saved-profiles" class="saved-profiles"></div>
+      </div>
+    </section>
+
+    <section id="question-overlay" class="overlay" aria-modal="true" role="dialog" aria-live="polite">
+      <div class="panel question-panel">
+        <div class="question-meta">
+          <span id="question-context">MATH ENERGY</span>
+          <span id="question-skill">KỸ NĂNG</span>
+        </div>
+        <h2 id="question-text">7 × 8 = ?</h2>
+        <p id="question-hint" class="hint"></p>
+        <div id="answer-grid" class="answer-grid"></div>
+        <p id="question-feedback" class="feedback"></p>
+      </div>
+    </section>
+
+    <section id="report-overlay" class="overlay" aria-modal="true" role="dialog">
+      <div class="panel report-panel">
+        <p class="eyebrow">MISSION COMPLETE</p>
+        <h2>Mecha City đã được bảo vệ!</h2>
+        <div id="report-content"></div>
+        <button id="play-again-btn" class="cta">CHƠI LẠI</button>
+        <button id="switch-profile-btn" class="action-btn">Đổi người chơi</button>
+      </div>
+    </section>
+
+    <div id="toast" role="status"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
